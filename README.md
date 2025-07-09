@@ -1,4 +1,4 @@
-📸 Face-Recognition-Attendance-System
+**📸 Face-Recognition-Attendance-System**
 
   🚀 An AI-powered facial recognition attendance system
 

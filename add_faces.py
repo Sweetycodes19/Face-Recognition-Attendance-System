@@ -10,7 +10,7 @@ def speak(text):
     speaker = Dispatch("SAPI.SpVoice")
     speaker.Speak(text)
 
-# Initialize webcam
+
 video = cv2.VideoCapture(0)
 
 name = input("Enter Your Name: ")
@@ -42,11 +42,10 @@ while True:
 video.release()
 cv2.destroyAllWindows()
 
-# ✅ Ensure data folder exists
+
 if not os.path.exists('data'):
     os.makedirs('data')
 
-# ✅ SAFE LOAD: check if file is valid
 if os.path.exists('data/encodings.pkl'):
     with open('data/encodings.pkl', 'rb') as f:
         loaded = pickle.load(f)
@@ -58,7 +57,6 @@ if os.path.exists('data/encodings.pkl'):
 else:
     all_encodings, all_names = [], []
 
-# ✅ Append new encodings & save
 all_encodings.extend(encodings)
 all_names.extend([name] * len(encodings))
 

@@ -4,7 +4,7 @@
 
 ## Screenshots
 
-![App Screenshot]([https://via.placeholder.com/468x300?text=App+Screenshot+Here](https://github.com/Sweetycodes19/Face-Recognition-Attendance-System/blob/412353a3e47fc6bc611d97fa64a438e6fb53f922/Screenshot%202025-07-09%20145732.png))
+![image alt](https://github.com/Sweetycodes19/Face-Recognition-Attendance-System/blob/main/Screenshot%202025-07-09%20145732.png)
 
 
 ## 📜 About the Project

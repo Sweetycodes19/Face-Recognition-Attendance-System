@@ -7,11 +7,11 @@ This project automates the process of taking attendance using a webcam and real-
 🎯 Features
 
 📸 Face Registration 
-🧑‍💻 Real-time face detection & recognition  
-🗂️ Database integration for attendance logging 
-🔒 Secure & efficient attendance tracking
-📊 Streamlit Dashboard
-🔊 Text-to-Speech 
+🧑‍💻 Real-time face detection & recognition. 
+🗂️ Database integration for attendance logging.
+🔒 Secure & efficient attendance tracking.
+📊 Streamlit Dashboard.
+🔊 Text-to-Speech.
 
 🛠️ Technologies Used
 

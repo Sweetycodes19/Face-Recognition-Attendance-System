@@ -14,14 +14,14 @@ def speak(text):
     speaker = Dispatch("SAPI.SpVoice")
     speaker.Speak(text)
 
-# Load known encodings
+
 with open('data/encodings.pkl', 'rb') as f:
     known_encodings, known_names = pickle.load(f)
 
-# Initialize webcam
+
 video = cv2.VideoCapture(0)
 
-# SQLite DB
+
 conn = sqlite3.connect('attendance.db')
 c = conn.cursor()
 

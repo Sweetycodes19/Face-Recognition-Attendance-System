@@ -6,7 +6,6 @@ st.set_page_config(page_title="Face Attendance Dashboard", layout="wide")
 
 st.title("🎓 Face Recognition Attendance Dashboard")
 
-# Connect to DB
 conn = sqlite3.connect('attendance.db')
 c = conn.cursor()
 

@@ -43,19 +43,21 @@ pip install -r requirements.txt
     
 ## 🖥️ How It Works
 - **1️⃣ Admin Login/Register** — Secure access via password-protected admin panel. Only registered admins can proceed.
-- **2️⃣Register Faces** — Store authorized user images in the database.
+- **2️⃣ Register Faces** — Store authorized user images in the database.
 - **3️⃣ Mark Attendance** — The system matches faces with registered users.
 - **4️⃣ Log Data** — Records are saved with name, time, date, and the admin who logged them.
 - **5️⃣ View Dashboard** — Admin can filter, view, and download attendance logs directly through the Streamlit dashboard.
 
 
 ## 📌 Future Enhancements
-- ✅ Add face liveness detection to prevent spoofing.
-- ✅ Add admin authentication for managing records.
-- ✅ Add photo snapshots with each record.
-- ✅ Integrate with cloud storage or Firebase for multi-device syncing.
-- ✅ Add email notifications for attendance logs.
-- ✅ Deploy Streamlit dashboard online for remote access.
+- ☁️ Cloud sync with Firebase
+- 👤 Face login for admins
+- 📧 Email/SMS attendance alerts
+- 📊 Attendance analytics and charts
+- 🔔 Real-time notifications and logs
+- 🧠 AI-based spoof detection for better security
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -40,6 +40,11 @@ cd Face-Recognition-Attendance-System
 ```bash 
 pip install -r requirements.txt
 ```
+3️⃣ **Run the repository:**
+
+```bash 
+streamlit run app.py
+```
     
 ## 🖥️ How It Works
 - **1️⃣ Admin Login/Register** — Secure access via password-protected admin panel. Only registered admins can proceed.

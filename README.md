@@ -42,10 +42,13 @@ pip install -r requirements.txt
 ```
     
 ## 🖥️ How It Works
-- **1️⃣ Register Faces** — Store authorized user images in the database.
-- **2️⃣ Mark Attendance** — The system matches faces with registered users.
-- **3️⃣ Log Data** — Attendance is saved with name, date, and timestamp.
-- **4️⃣View Dashboard** — Run app.py with Streamlit to view attendance records.
+- **1️⃣ Admin Login/Register** — Secure access via password-protected admin panel. Only registered admins can proceed.
+- **2️⃣Register Faces** — Store authorized user images in the database.
+- **3️⃣ Mark Attendance** — The system matches faces with registered users.
+- **4️⃣ Log Data** — Records are saved with name, time, date, and the admin who logged them.
+- **5️⃣ View Dashboard** — Admin can filter, view, and download attendance logs directly through the Streamlit dashboard.
+
+
 ## 📌 Future Enhancements
 - ✅ Add face liveness detection to prevent spoofing.
 - ✅ Add admin authentication for managing records.

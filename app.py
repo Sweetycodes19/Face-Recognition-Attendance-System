@@ -75,14 +75,45 @@ def change_admin_password_inline():
 
 # --- Reset Admins ---
 def reset_admins_inline():
-    if st.button("🧨 Reset All Admins"):
-        if os.path.exists(ADMIN_FILE):
-            os.remove(ADMIN_FILE)
-            st.success("✅ All admins removed. Restart app.")
-            speak("Admins removed")
-            st.stop()
+    st.subheader("🧨 Reset Admin & Records")
 
-# --- Session Setup ---
+    reset_name = st.text_input("Enter Admin Name ", key="reset_name")
+    reset_pass = st.text_input("Enter Admin Password", type="password", key="reset_pass")
+
+    if st.button("Confirm Remove Admin"):
+        admins = load_admins()
+        if not admins:
+            st.error("⚠️ No admins registered yet.")
+            return
+
+        # Verify name + password
+        valid = False
+        for admin in admins:
+            if admin["name"] == reset_name and admin["password"] == hash_password(reset_pass):
+                valid = True
+                admins.remove(admin)
+                break
+
+        if valid:
+            # Save updated admins list (without the removed one)
+            save_admins(admins)
+
+            # Remove attendance records for that admin
+            conn = sqlite3.connect("attendance.db")
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM attendance WHERE admin=?", (reset_name,))
+            conn.commit()
+            conn.close()
+
+            st.success(f"✅ Admin '{reset_name}' and all their records removed.")
+            speak(f"Admin {reset_name} removed successfully")
+            st.stop()
+        else:
+            st.error("❌ Invalid admin name or password. Removal denied.")
+            speak("Invalid admin name or password")
+
+
+# -- Session Setup -
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "admin_name" not in st.session_state:
@@ -172,18 +203,28 @@ with st.sidebar:
     page = st.radio("Go to", ["Dashboard", "Register New Face", "Recognize Face"])
     st.markdown(f"**Logged in as:** `{st.session_state.admin_name}`")
 
-    # Only for dashboard: filters + logout
     if page == "Dashboard":
+        # ✅ Create df first
         df = get_attendance_df()
+
         if "admin" in df.columns:
             df = df[df["admin"] == st.session_state.admin_name]
 
         if not df.empty:
-            unique_dates = sorted(df["date"].unique())
-            unique_names = sorted(df["name"].unique())
+            unique_names = sorted(df["name"].unique()) if "name" in df.columns else []
 
-            st.session_state.date_filter = st.selectbox("📅 Select Date", ["All"] + unique_dates)
+            # 📅 Calendar input
+            date_choice = st.date_input("📅 Select Date", value=None)
+            if date_choice:
+                st.session_state.date_filter = str(date_choice)
+            else:
+                st.session_state.date_filter = "All"
+
             st.session_state.name_filter = st.selectbox("🧑 Select Name", ["All"] + unique_names)
+
+        else:
+            st.session_state.date_filter = "All"
+            st.session_state.name_filter = "All"
 
         if st.button("🔓 Logout"):
             st.session_state.logged_in = False

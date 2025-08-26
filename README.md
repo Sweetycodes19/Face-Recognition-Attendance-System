@@ -4,7 +4,7 @@
 
 ## Screenshots
 ![image alt](https://github.com/Sweetycodes19/Face-Recognition-Attendance-System/blob/main/Images/Screenshot%202025-07-19%20232001.png)
-![image alt](https://github.com/Sweetycodes19/Face-Recognition-Attendance-System/blob/main/Images/Screenshot%202025-07-19%20232044.png)
+![image alt](https://github.com/Sweetycodes19/Face-Recognition-Attendance-System/blob/main/Images/Screenshot%202025-08-21%20140643.png?raw=true)
 
 
 
